@@ -1,5 +1,5 @@
 -- C O N F I G --
-interactionDistance = 3.5 --The radius you have to be in to interact with the vehicle.
+interactionDistance = 0.1 --The radius you have to be in to interact with the vehicle.
 
 --  V A R I A B L E S --
 engineoff = false
