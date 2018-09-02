@@ -6,9 +6,6 @@ engineoff = false
 saved = false
 controlsave_bool = false
 
--- C H A T  C O M M A N D S --
-
-
 -- E N G I N E --
 IsEngineOn = true
 RegisterNetEvent('engine')
@@ -21,10 +18,12 @@ AddEventHandler('engine',function()
 		if IsEngineOn == true then
 			IsEngineOn = false
 			SetVehicleEngineOn(vehicle,false,false,false)
+			TriggerClientEvent('esx:showNotification', _source, "You turned the engine on.")
 		else
 			IsEngineOn = true
 			SetVehicleUndriveable(vehicle,false)
 			SetVehicleEngineOn(vehicle,true,false,false)
+			TriggerClientEvent('esx:showNotification', _source, "You turned the engine off.")
 		end
 		
 		while (IsEngineOn == false) do
@@ -41,7 +40,8 @@ AddEventHandler('engineoff',function()
         if (IsPedSittingInAnyVehicle(player)) then 
             local vehicle = GetVehiclePedIsIn(player,false)
 			engineoff = true
-			ShowNotification("Engine ~r~off~s~.")
+			--ShowNotification("Engine ~r~off~s~.")
+			TriggerClientEvent('esx:showNotification', _source, "Your turned the engine off.")
 			while (engineoff) do
 			SetVehicleEngineOn(vehicle,false,false,false)
 			SetVehicleUndriveable(vehicle,true)
@@ -58,7 +58,8 @@ AddEventHandler('engineon',function()
 			engineoff = false
 			SetVehicleUndriveable(vehicle,false)
 			SetVehicleEngineOn(vehicle,true,false,false)
-			ShowNotification("Engine ~g~on~s~.")
+			--ShowNotification("Engine ~g~on~s~.")
+			TriggerClientEvent('esx:showNotification', _source, "You turned the engine on.")
 	end
 end)
 -- T R U N K --
@@ -81,7 +82,7 @@ AddEventHandler('trunk',function()
 				SetVehicleDoorShut(vehicle,5,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)
 -- LEFT DOOR --
@@ -104,7 +105,8 @@ AddEventHandler('ldoor',function()
 				SetVehicleDoorShut(vehicle,1,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				--ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)
 -- RIGHT DOOR --
@@ -127,7 +129,8 @@ AddEventHandler('rdoor',function()
 				SetVehicleDoorShut(vehicle,2,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				--ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)
 -- LEFT-REAR DOOR --
@@ -150,7 +153,8 @@ AddEventHandler('lrdoor',function()
 				SetVehicleDoorShut(vehicle,3,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				--ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)
 -- RIGHT-REAR DOOR --
@@ -173,7 +177,8 @@ AddEventHandler('rrdoor',function()
 				SetVehicleDoorShut(vehicle,4,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				--ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)
 -- R E A R  D O O R S --
@@ -197,7 +202,8 @@ AddEventHandler('rdoors',function()
 				SetVehicleDoorShut(vehicle,3,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				--ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)		
 
@@ -221,6 +227,7 @@ AddEventHandler('hood',function()
 				SetVehicleDoorShut(vehicle,4,0)
 				end
 			else
-				ShowNotification("~r~You must be near your vehicle to do that.")
+				--ShowNotification("~r~You must be near your vehicle to do that.")
+				TriggerClientEvent('esx:showNotification', _source, "You must be in your vehicle to do that.")
 			end
 end)
