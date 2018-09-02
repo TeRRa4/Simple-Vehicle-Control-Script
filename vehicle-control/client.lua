@@ -6,6 +6,9 @@ engineoff = false
 saved = false
 controlsave_bool = false
 
+-- C H A T  C O M M A N D S --
+
+
 -- E N G I N E --
 IsEngineOn = true
 RegisterNetEvent('engine')
@@ -76,6 +79,98 @@ AddEventHandler('trunk',function()
 				SetVehicleDoorOpen(vehicle,5,0,0)
 				else
 				SetVehicleDoorShut(vehicle,5,0)
+				end
+			else
+				ShowNotification("~r~You must be near your vehicle to do that.")
+			end
+end)
+-- LEFT DOOR --
+RegisterNetEvent('ldoor')
+AddEventHandler('ldoor',function() 
+	local player = GetPlayerPed(-1)
+			if controlsave_bool == true then
+				vehicle = saveVehicle
+			else
+				vehicle = GetVehiclePedIsIn(player,true)
+			end
+			
+			local isopen = GetVehicleDoorAngleRatio(vehicle,1)
+			local distanceToVeh = GetDistanceBetweenCoords(GetEntityCoords(player), GetEntityCoords(vehicle), 1)
+			
+			if distanceToVeh <= interactionDistance then
+				if (isopen == 0) then
+				SetVehicleDoorOpen(vehicle,1,0,0)
+				else
+				SetVehicleDoorShut(vehicle,1,0)
+				end
+			else
+				ShowNotification("~r~You must be near your vehicle to do that.")
+			end
+end)
+-- RIGHT DOOR --
+RegisterNetEvent('rdoor')
+AddEventHandler('rdoor',function() 
+	local player = GetPlayerPed(-1)
+			if controlsave_bool == true then
+				vehicle = saveVehicle
+			else
+				vehicle = GetVehiclePedIsIn(player,true)
+			end
+			
+			local isopen = GetVehicleDoorAngleRatio(vehicle,2)
+			local distanceToVeh = GetDistanceBetweenCoords(GetEntityCoords(player), GetEntityCoords(vehicle), 1)
+			
+			if distanceToVeh <= interactionDistance then
+				if (isopen == 0) then
+				SetVehicleDoorOpen(vehicle,2,0,0)
+				else
+				SetVehicleDoorShut(vehicle,2,0)
+				end
+			else
+				ShowNotification("~r~You must be near your vehicle to do that.")
+			end
+end)
+-- LEFT-REAR DOOR --
+RegisterNetEvent('lrdoor')
+AddEventHandler('lrdoor',function() 
+	local player = GetPlayerPed(-1)
+			if controlsave_bool == true then
+				vehicle = saveVehicle
+			else
+				vehicle = GetVehiclePedIsIn(player,true)
+			end
+			
+			local isopen = GetVehicleDoorAngleRatio(vehicle,3)
+			local distanceToVeh = GetDistanceBetweenCoords(GetEntityCoords(player), GetEntityCoords(vehicle), 1)
+			
+			if distanceToVeh <= interactionDistance then
+				if (isopen == 0) then
+				SetVehicleDoorOpen(vehicle,3,0,0)
+				else
+				SetVehicleDoorShut(vehicle,3,0)
+				end
+			else
+				ShowNotification("~r~You must be near your vehicle to do that.")
+			end
+end)
+-- RIGHT-REAR DOOR --
+RegisterNetEvent('rrdoor')
+AddEventHandler('rrdoor',function() 
+	local player = GetPlayerPed(-1)
+			if controlsave_bool == true then
+				vehicle = saveVehicle
+			else
+				vehicle = GetVehiclePedIsIn(player,true)
+			end
+			
+			local isopen = GetVehicleDoorAngleRatio(vehicle,4)
+			local distanceToVeh = GetDistanceBetweenCoords(GetEntityCoords(player), GetEntityCoords(vehicle), 1)
+			
+			if distanceToVeh <= interactionDistance then
+				if (isopen == 0) then
+				SetVehicleDoorOpen(vehicle,4,0,0)
+				else
+				SetVehicleDoorShut(vehicle,4,0)
 				end
 			else
 				ShowNotification("~r~You must be near your vehicle to do that.")
