@@ -1,3 +1,29 @@
+-- CHAT COMMAND REGISTRATION --
+-- This is for ESX/RPChat
+RegisterCommand('engine', function()
+end)
+
+RegisterCommand('trunk', function()
+end)
+
+RegisterCommand('ldoor', function()
+end)
+
+RegisterCommand('rdoor', function()
+end)
+
+RegisterCommand('lrdoor', function()
+end)
+
+RegisterCommand('rrdoor', function()
+end)
+
+RegisterCommand('rdoors', function()
+end)
+
+RegisterCommand('hood', function()
+end)
+
 -- E N G I N E --
 AddEventHandler('chatMessage', function(s, n, m)
 	local message = string.lower(m)
