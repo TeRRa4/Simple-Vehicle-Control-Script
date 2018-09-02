@@ -6,6 +6,31 @@ engineoff = false
 saved = false
 controlsave_bool = false
 
+-- CHAT COMMAND REGISTRATION --
+Citizen.CreateThread(function()
+	TriggerEvent('chat:addSuggestion', '/engine',  "toggle vehicle engine", , } } )
+	TriggerEvent('chat:addSuggestion', '/ldoor',  "open/close left door", , } } )
+	TriggerEvent('chat:addSuggestion', '/rdoor',   "open/close right door", , } } )
+	TriggerEvent('chat:addSuggestion', '/lrdoor', "open/close left-rear door", , } } )
+	TriggerEvent('chat:addSuggestion', '/rrdoor', "open/close right-rear door", , } } )
+	TriggerEvent('chat:addSuggestion', '/rdoors', "open/close both rear doors", , } } )
+	TriggerEvent('chat:addSuggestion', '/trunk', "open/close trunk", , } } )
+	TriggerEvent('chat:addSuggestion', '/hood', "open/close hood", , } } )
+end)
+
+AddEventHandler('onResourceStop', function(resource)
+	if resource == GetCurrentResourceName() then
+		TriggerEvent('chat:removeSuggestion', '/engine')
+		TriggerEvent('chat:removeSuggestion', '/ldoor')
+		TriggerEvent('chat:removeSuggestion', '/rdoor')
+		TriggerEvent('chat:removeSuggestion', '/lrdoor')
+		TriggerEvent('chat:removeSuggestion', '/rrdoor')
+		TriggerEvent('chat:removeSuggestion', '/rdoors')
+		TriggerEvent('chat:removeSuggestion', '/trunk')
+		TriggerEvent('chat:removeSuggestion', '/hood')
+	end
+end)
+
 -- E N G I N E --
 IsEngineOn = true
 RegisterNetEvent('engine')
