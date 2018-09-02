@@ -24,6 +24,42 @@ AddEventHandler('chatMessage', function(s, n, m)
 		TriggerClientEvent('trunk', s)
 	end
 end)
+-- L --
+AddEventHandler('chatMessage', function(s, n, m)
+	local message = string.lower(m)
+	if message == "/ldoor" then
+		CancelEvent()
+		--------------
+		TriggerClientEvent('ldoor', s)
+	end
+end)
+-- R --
+AddEventHandler('chatMessage', function(s, n, m)
+	local message = string.lower(m)
+	if message == "/rdoor" then
+		CancelEvent()
+		--------------
+		TriggerClientEvent('rdoor', s)
+	end
+end)
+-- LR --
+AddEventHandler('chatMessage', function(s, n, m)
+	local message = string.lower(m)
+	if message == "/lrdoor" then
+		CancelEvent()
+		--------------
+		TriggerClientEvent('lrdoor', s)
+	end
+end)
+-- RR --
+AddEventHandler('chatMessage', function(s, n, m)
+	local message = string.lower(m)
+	if message == "/rrdoor" then
+		CancelEvent()
+		--------------
+		TriggerClientEvent('rrdoor', s)
+	end
+end)
 -- R E A R  D O O R S --
 AddEventHandler('chatMessage', function(s, n, m)
 	local message = string.lower(m)
